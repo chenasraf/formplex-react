@@ -2,6 +2,7 @@
 
 ## v0.1.3
 
+- feat: add `validate` method
 - fix: remove unnecessary `pattern` from `ErrorString`
 
 ## v0.1.2

@@ -10,7 +10,15 @@ import {
   UseFormReturn,
 } from './types'
 
-/** The main hook for using forms. See each option and return property for more information. */
+/**
+ * The main hook for using forms. See each option and return property for more information
+ *
+ * @typeParam T - The type of the form state.
+ * @param options Form options
+ * @returns Object containing the form state, errors, and field registration.
+ * @see {@link UseFormOptions}
+ * @see {@link UseFormReturn}
+ */
 export function useForm<T>({
   initialState = {},
   errorMessages = {},
@@ -23,6 +31,9 @@ export function useForm<T>({
     maxLength: (n) => `Must be no more than ${n} characters long`,
     ...errorMessages,
   }
+  const fields = React.useRef<Record<keyof T, FieldOptions<keyof T>>>(
+    {} as unknown as Record<keyof T, FieldOptions<keyof T>>,
+  )
   const [state, setState] = React.useState<Partial<T>>(initialState ?? {})
   const [rawState, setRawState] = React.useState<
     Partial<Record<keyof T, string | string[] | number>>
@@ -99,6 +110,8 @@ export function useForm<T>({
   }
 
   function fieldProps<K extends keyof T, E>(key: K, options?: FieldOptions<T, K>): FieldReturn<E> {
+    fields.current = { ...fields.current, [key]: options }
+
     if (autoValidateBehavior === 'immediate') {
       setErrorsFromRaw<K>(key, rawState[key], options)
     }
@@ -174,6 +187,23 @@ export function useForm<T>({
     }
   }
 
+  function validateAll(): boolean {
+    const errors = Object.entries(rawState).reduce((acc, [key, value]) => {
+      const error = validate(
+        key as keyof T,
+        value as T[keyof T],
+        (fields.current[key as keyof T] ?? {}) as FieldOptions<T, keyof T>,
+      )
+      if (error) {
+        return { ...acc, [key]: error }
+      }
+      return acc
+    }, {} as Partial<Record<keyof T, ErrorMessage>>)
+
+    setErrors(errors)
+    return Object.values(errors).length === 0
+  }
+
   return {
     field: fieldProps,
     errors,
@@ -183,5 +213,6 @@ export function useForm<T>({
     setValue,
     setValues: setValues,
     handleSubmit,
+    validate: validateAll,
   }
 }
