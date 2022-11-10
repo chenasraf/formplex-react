@@ -3,8 +3,8 @@
 <h2 align="center">
 
 [GitHub](https://github.com/chenasraf/formplex-react) |
-[Documentation](https://casraf.blog/formplex-react) |
-[NPM](https://npmjs.com/package/formplex-react) | [casraf.dev](https://casraf.dev)
+[Documentation](https://casraf.dev/formplex-react) | [NPM](https://npmjs.com/package/formplex-react)
+| [casraf.dev](https://casraf.dev)
 
 </h2>
 
