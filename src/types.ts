@@ -42,6 +42,9 @@ export interface UseFormOptions<T> {
   autoValidateBehavior?: 'immediate' | 'onChange' | 'onBlur' | 'never'
 }
 
+/**
+ * Return value of the `useForm` hook. See each property for more information.
+ */
 export interface UseFormReturn<T> {
   /**
    * Register a field input named `key` to the form. This will return props that should be injected into the input.
@@ -116,6 +119,9 @@ export interface UseFormReturn<T> {
   validate(): boolean
 }
 
+/**
+ * Options for every field. See each property for more information.
+ */
 export interface FieldOptions<T, K extends keyof T = keyof T> {
   /**
    * If `true`, the field will be required.
