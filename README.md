@@ -4,7 +4,8 @@
 
 Handle forms in your React apps with incredible ease.
 
-FormPlex lets you handle React forms without the hassle.
+FormPlex lets you use React forms without the hassle; including easy validations, predictable and
+simple usage & API, and great flexibility.
 
 ## Quick-start
 
@@ -44,7 +45,12 @@ const { field, handleSubmit, isValid, errors, state, rawState, setValue, setValu
 Use `field()` from the previous hook on your inputs, should support most input types:
 
 ```tsx
-<input type="text" {...field('firstName', { required:true, minLength: 2 })}>
+<input type="text" {...field('firstName', { required: true, minLength: 2 })} />
+<input type="number" {...field('age', {
+  required: true,
+  validate: (n) => n < 18 ? "Must be 18 or over" : null,
+  parse: Number,
+})} />
 <select {...field('gender', { required: true })}>
   ...
 </select>
