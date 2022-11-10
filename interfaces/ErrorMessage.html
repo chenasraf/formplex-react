@@ -15,12 +15,25 @@
 <li><a href="../modules.html">formplex-react</a></li>
 <li><a href="ErrorMessage.html">ErrorMessage</a></li></ul>
 <h1>Interface ErrorMessage</h1></div>
+<section class="tsd-panel tsd-comment">
+<div class="tsd-comment tsd-typography"><p>A single error message. If an error exists on a field, this will be in the <a href="UseFormReturn.html#errors">errors</a> object
+under the field&#39;s key. Otherwise, it is <code>undefined</code>.</p>
+
+<h3>See</h3><ul>
+<li><a href="ErrorStrings.html">ErrorStrings</a> for definition of error messages</li>
+<li><a href="UseFormOptions.html#errorMessages">UseFormOptions.errorMessages</a> for global error messages (for the entire form)</li>
+<li><a href="FieldOptions.html#required">FieldOptions.required</a> for defining a field as required</li>
+<li><a href="FieldOptions.html#minLength">FieldOptions.minLength</a> for defining a minimum length for the field</li>
+<li><a href="FieldOptions.html#maxLength">FieldOptions.maxLength</a> for defining a maximum length for the field</li>
+<li><a href="FieldOptions.html#validate">FieldOptions.validate</a> for defining a custom validation function</li>
+</ul>
+</div></section>
 <section class="tsd-panel tsd-hierarchy">
 <h4>Hierarchy</h4>
 <ul class="tsd-hierarchy">
 <li><span class="target">ErrorMessage</span></li></ul></section><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/chenasraf/formplex-react/blob/726da34/src/types.ts#L147">types.ts:147</a></li></ul></aside>
+<li>Defined in <a href="https://github.com/chenasraf/formplex-react/blob/cd4988d/src/types.ts#L233">types.ts:233</a></li></ul></aside>
 <section class="tsd-panel-group tsd-index-group">
 <section class="tsd-panel tsd-index-panel">
 <details class="tsd-index-content tsd-index-accordion" open><summary class="tsd-accordion-summary tsd-index-summary">
@@ -38,16 +51,22 @@
 <div class="tsd-signature">error<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">keyof </span><a href="ErrorStrings.html" class="tsd-signature-type" data-tsd-kind="Interface">ErrorStrings</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;validate&quot;</span></div>
 <div class="tsd-comment tsd-typography"><p>The type of validation error on the field, such as <code>required</code>, <code>minLength</code>, <code>maxLength</code>, and <code>pattern</code>, or
 <code>validate</code> for custom validations</p>
+
+<h3>See</h3><ul>
+<li><a href="ErrorStrings.html">ErrorStrings</a> for definition of error messages</li>
+<li><a href="UseFormOptions.html#errorMessages">UseFormOptions.errorMessages</a> for global error messages for the default validation methods</li>
+<li><a href="FieldOptions.html#errorMessages">FieldOptions.errorMessages</a> for field-specific error messages for the default validation methods</li>
+</ul>
 </div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/chenasraf/formplex-react/blob/726da34/src/types.ts#L152">types.ts:152</a></li></ul></aside></section>
+<li>Defined in <a href="https://github.com/chenasraf/formplex-react/blob/cd4988d/src/types.ts#L242">types.ts:242</a></li></ul></aside></section>
 <section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface"><a id="message" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>message</span><a href="#message" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <div class="tsd-signature">message<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 <div class="tsd-comment tsd-typography"><p>The error message for the field.</p>
 </div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/chenasraf/formplex-react/blob/726da34/src/types.ts#L156">types.ts:156</a></li></ul></aside></section></section></div>
+<li>Defined in <a href="https://github.com/chenasraf/formplex-react/blob/cd4988d/src/types.ts#L247">types.ts:247</a></li></ul></aside></section></section></div>
 <div class="col-4 col-menu menu-sticky-wrap menu-highlight">
 <div class="tsd-navigation settings">
 <details class="tsd-index-accordion"><summary class="tsd-accordion-summary">

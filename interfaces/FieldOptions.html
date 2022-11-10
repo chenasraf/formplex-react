@@ -27,7 +27,7 @@
 <ul class="tsd-hierarchy">
 <li><span class="target">FieldOptions</span></li></ul></section><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/chenasraf/formplex-react/blob/726da34/src/types.ts#L83">types.ts:83</a></li></ul></aside>
+<li>Defined in <a href="https://github.com/chenasraf/formplex-react/blob/cd4988d/src/types.ts#L119">types.ts:119</a></li></ul></aside>
 <section class="tsd-panel-group tsd-index-group">
 <section class="tsd-panel tsd-index-panel">
 <details class="tsd-index-content tsd-index-accordion" open><summary class="tsd-accordion-summary tsd-index-summary">
@@ -38,6 +38,7 @@
 <div class="tsd-index-list"><a href="FieldOptions.html#errorMessages" class="tsd-index-link tsd-kind-property tsd-parent-kind-interface"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><rect fill="var(--color-icon-background)" stroke="#FF984D" stroke-width="1.5" x="1" y="1" width="22" height="22" rx="12" id="icon-1024-path"></rect><path d="M9.354 16V7.24H12.174C12.99 7.24 13.638 7.476 14.118 7.948C14.606 8.412 14.85 9.036 14.85 9.82C14.85 10.604 14.606 11.232 14.118 11.704C13.638 12.168 12.99 12.4 12.174 12.4H10.434V16H9.354ZM10.434 11.428H12.174C12.646 11.428 13.022 11.284 13.302 10.996C13.59 10.7 13.734 10.308 13.734 9.82C13.734 9.324 13.59 8.932 13.302 8.644C13.022 8.356 12.646 8.212 12.174 8.212H10.434V11.428Z" fill="var(--color-text)" id="icon-1024-text"></path></svg><span>error<wbr/>Messages?</span></a>
 <a href="FieldOptions.html#maxLength" class="tsd-index-link tsd-kind-property tsd-parent-kind-interface"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg><span>max<wbr/>Length?</span></a>
 <a href="FieldOptions.html#minLength" class="tsd-index-link tsd-kind-property tsd-parent-kind-interface"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg><span>min<wbr/>Length?</span></a>
+<a href="FieldOptions.html#onBlur" class="tsd-index-link tsd-kind-property tsd-parent-kind-interface"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg><span>on<wbr/>Blur?</span></a>
 <a href="FieldOptions.html#onChange" class="tsd-index-link tsd-kind-property tsd-parent-kind-interface"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg><span>on<wbr/>Change?</span></a>
 <a href="FieldOptions.html#parse" class="tsd-index-link tsd-kind-property tsd-parent-kind-interface"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg><span>parse?</span></a>
 <a href="FieldOptions.html#pattern" class="tsd-index-link tsd-kind-property tsd-parent-kind-interface"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg><span>pattern?</span></a>
@@ -50,51 +51,94 @@
 <h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagOptional">Optional</code> <span>error<wbr/>Messages</span><a href="#errorMessages" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none" id="icon-anchor-a"></path><path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" id="icon-anchor-b"></path><path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" id="icon-anchor-c"></path></svg></a></h3>
 <div class="tsd-signature">error<wbr/>Messages<span class="tsd-signature-symbol">?:</span> <span class="tsd-signature-type">Partial</span><span class="tsd-signature-symbol">&lt;</span><a href="ErrorStrings.html" class="tsd-signature-type" data-tsd-kind="Interface">ErrorStrings</a><span class="tsd-signature-symbol">&gt;</span></div>
 <div class="tsd-comment tsd-typography"><p>Map of custom error messages for the default validation methods.</p>
+
+<h3>See</h3><ul>
+<li><a href="ErrorStrings.html">ErrorStrings</a> for definition of error messages</li>
+<li><a href="UseFormOptions.html#errorMessages">UseFormOptions.errorMessages</a> for global error messages (for the entire form)</li>
+<li><a href="FieldOptions.html#required">required</a> for defining a field as required</li>
+<li><a href="FieldOptions.html#minLength">minLength</a> for defining a minimum length for the field</li>
+<li><a href="FieldOptions.html#maxLength">maxLength</a> for defining a maximum length for the field</li>
+<li><a href="FieldOptions.html#validate">validate</a> for defining a custom validation function</li>
+</ul>
 </div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/chenasraf/formplex-react/blob/726da34/src/types.ts#L119">types.ts:119</a></li></ul></aside></section>
+<li>Defined in <a href="https://github.com/chenasraf/formplex-react/blob/cd4988d/src/types.ts#L168">types.ts:168</a></li></ul></aside></section>
 <section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface"><a id="maxLength" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagOptional">Optional</code> <span>max<wbr/>Length</span><a href="#maxLength" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <div class="tsd-signature">max<wbr/>Length<span class="tsd-signature-symbol">?:</span> <span class="tsd-signature-type">number</span></div>
 <div class="tsd-comment tsd-typography"><p>Maximum length (in characters) for the field.</p>
-<p>This will cause the form to be invalid if the field is longer than the given length,
-and an error message will be provided in <code>errors</code>.</p>
+<p>This will cause the form to be invalid if the field is longer than the given length, and an error message will
+be provided in <a href="UseFormReturn.html#errors">UseFormReturn.errors</a>.</p>
+<p>To provide a custom error message, use <a href="FieldOptions.html#errorMessages">errorMessages</a>.</p>
 </div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/chenasraf/formplex-react/blob/726da34/src/types.ts#L106">types.ts:106</a></li></ul></aside></section>
+<li>Defined in <a href="https://github.com/chenasraf/formplex-react/blob/cd4988d/src/types.ts#L148">types.ts:148</a></li></ul></aside></section>
 <section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface"><a id="minLength" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagOptional">Optional</code> <span>min<wbr/>Length</span><a href="#minLength" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <div class="tsd-signature">min<wbr/>Length<span class="tsd-signature-symbol">?:</span> <span class="tsd-signature-type">number</span></div>
 <div class="tsd-comment tsd-typography"><p>Minimum length (in characters) for the field.</p>
-<p>This will cause the form to be invalid if the field is shorter than the given length,
-and an error message will be provided in <code>errors</code>.</p>
+<p>This will cause the form to be invalid if the field is shorter than the given length, and an error message will
+be provided in <a href="UseFormReturn.html#errors">UseFormReturn.errors</a>.</p>
+<p>To provide a custom error message, use <a href="FieldOptions.html#errorMessages">errorMessages</a>.</p>
 </div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/chenasraf/formplex-react/blob/726da34/src/types.ts#L98">types.ts:98</a></li></ul></aside></section>
-<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface"><a id="onChange" class="tsd-anchor"></a>
-<h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagOptional">Optional</code> <span>on<wbr/>Change</span><a href="#onChange" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
-<div class="tsd-signature">on<wbr/>Change<span class="tsd-signature-symbol">?:</span> <span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><a href="../types/ChangeEvent.html" class="tsd-signature-type" data-tsd-kind="Type alias">ChangeEvent</a>, value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type" data-tsd-kind="Type parameter">T</span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type" data-tsd-kind="Type parameter">K</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">)</span></div>
+<li>Defined in <a href="https://github.com/chenasraf/formplex-react/blob/cd4988d/src/types.ts#L138">types.ts:138</a></li></ul></aside></section>
+<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface"><a id="onBlur" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagOptional">Optional</code> <span>on<wbr/>Blur</span><a href="#onBlur" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
+<div class="tsd-signature">on<wbr/>Blur<span class="tsd-signature-symbol">?:</span> <span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ChangeEvent</span>, value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type" data-tsd-kind="Type parameter">T</span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type" data-tsd-kind="Type parameter">K</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">)</span></div>
 <div class="tsd-type-declaration">
 <h4>Type declaration</h4>
 <ul class="tsd-parameters">
 <li class="tsd-parameter-signature">
 <ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-interface">
-<li class="tsd-signature" id="__type.__type-1"><span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><a href="../types/ChangeEvent.html" class="tsd-signature-type" data-tsd-kind="Type alias">ChangeEvent</a>, value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type" data-tsd-kind="Type parameter">T</span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type" data-tsd-kind="Type parameter">K</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+<li class="tsd-signature" id="__type.__type-1"><span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ChangeEvent</span>, value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type" data-tsd-kind="Type parameter">T</span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type" data-tsd-kind="Type parameter">K</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 <li class="tsd-description">
-<div class="tsd-comment tsd-typography"><p>A callback for changing the input, which also contains the parsed value.</p>
-<p>Never use <code>onChange</code> on the input field directly, or it will not work to update the form state.
-Use this callback instead, which acts right after the input&#39;s <code>onChange</code> callback.</p>
+<div class="tsd-comment tsd-typography"><p>A callback for leaving focus from the input, which also contains the parsed value.</p>
+<p>Never use <code>onBlur</code> on the input field directly, or it will break validation for <code>onBlur</code>.</p>
+<p>Use this callback instead, which acts right after the input&#39;s <code>onBlur</code> callback.</p>
 </div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
 <ul class="tsd-parameter-list">
 <li>
-<h5>event: <a href="../types/ChangeEvent.html" class="tsd-signature-type" data-tsd-kind="Type alias">ChangeEvent</a></h5></li>
+<h5>event: <span class="tsd-signature-type">ChangeEvent</span></h5>
+<div class="tsd-comment tsd-typography"><p>The input change event.</p>
+</div></li>
 <li>
-<h5>value: <span class="tsd-signature-type" data-tsd-kind="Type parameter">T</span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type" data-tsd-kind="Type parameter">K</span><span class="tsd-signature-symbol">]</span></h5></li></ul></div>
+<h5>value: <span class="tsd-signature-type" data-tsd-kind="Type parameter">T</span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type" data-tsd-kind="Type parameter">K</span><span class="tsd-signature-symbol">]</span></h5>
+<div class="tsd-comment tsd-typography"><p>The parsed value of the field.</p>
+</div></li></ul></div>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4></li></ul></li></ul></div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/chenasraf/formplex-react/blob/726da34/src/types.ts#L144">types.ts:144</a></li></ul></aside></section>
+<li>Defined in <a href="https://github.com/chenasraf/formplex-react/blob/cd4988d/src/types.ts#L219">types.ts:219</a></li></ul></aside></section>
+<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface"><a id="onChange" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagOptional">Optional</code> <span>on<wbr/>Change</span><a href="#onChange" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
+<div class="tsd-signature">on<wbr/>Change<span class="tsd-signature-symbol">?:</span> <span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ChangeEvent</span>, value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type" data-tsd-kind="Type parameter">T</span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type" data-tsd-kind="Type parameter">K</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">)</span></div>
+<div class="tsd-type-declaration">
+<h4>Type declaration</h4>
+<ul class="tsd-parameters">
+<li class="tsd-parameter-signature">
+<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-interface">
+<li class="tsd-signature" id="__type-2.__type-3"><span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ChangeEvent</span>, value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type" data-tsd-kind="Type parameter">T</span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type" data-tsd-kind="Type parameter">K</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+<li class="tsd-description">
+<div class="tsd-comment tsd-typography"><p>A callback for changing the input, which also contains the parsed value.</p>
+<p>Never use <code>onChange</code> on the input field directly, or it will not work to update the form state.</p>
+<p>Use this callback instead, which acts right after the input&#39;s <code>onChange</code> callback.</p>
+</div>
+<div class="tsd-parameters">
+<h4 class="tsd-parameters-title">Parameters</h4>
+<ul class="tsd-parameter-list">
+<li>
+<h5>event: <span class="tsd-signature-type">ChangeEvent</span></h5>
+<div class="tsd-comment tsd-typography"><p>The input change event.</p>
+</div></li>
+<li>
+<h5>value: <span class="tsd-signature-type" data-tsd-kind="Type parameter">T</span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type" data-tsd-kind="Type parameter">K</span><span class="tsd-signature-symbol">]</span></h5>
+<div class="tsd-comment tsd-typography"><p>The parsed value of the field.</p>
+</div></li></ul></div>
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4></li></ul></li></ul></div><aside class="tsd-sources">
+<ul>
+<li>Defined in <a href="https://github.com/chenasraf/formplex-react/blob/cd4988d/src/types.ts#L207">types.ts:207</a></li></ul></aside></section>
 <section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface"><a id="parse" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagOptional">Optional</code> <span>parse</span><a href="#parse" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <div class="tsd-signature">parse<span class="tsd-signature-symbol">?:</span> <span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type" data-tsd-kind="Type parameter">T</span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type" data-tsd-kind="Type parameter">K</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">)</span></div>
@@ -103,38 +147,44 @@ Use this callback instead, which acts right after the input&#39;s <code>onChange
 <ul class="tsd-parameters">
 <li class="tsd-parameter-signature">
 <ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-interface">
-<li class="tsd-signature" id="__type-2.__type-3"><span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type" data-tsd-kind="Type parameter">T</span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type" data-tsd-kind="Type parameter">K</span><span class="tsd-signature-symbol">]</span></li>
+<li class="tsd-signature" id="__type-4.__type-5"><span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type" data-tsd-kind="Type parameter">T</span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type" data-tsd-kind="Type parameter">K</span><span class="tsd-signature-symbol">]</span></li>
 <li class="tsd-description">
-<div class="tsd-comment tsd-typography"><p>A custom parser for the field. This will be called when the field is updated, and will cause the <code>state</code> object
-to be updated with the result of this function.</p>
-<p><code>rawState</code> will always contain the raw value of the field as it was placed here.</p>
+<div class="tsd-comment tsd-typography"><p>A custom parser for the field. This will be called when the field is updated, and will cause the
+<a href="UseFormReturn.html#state">state</a> object to be updated with the result of this function.</p>
+<p><a href="UseFormReturn.html#rawState">UseFormReturn.rawState</a> will always contain the raw value of the field as it was
+placed here.</p>
+
+<h3>Returns</h3><p>The parsed value of the field.</p>
 </div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
 <ul class="tsd-parameter-list">
 <li>
-<h5>value: <span class="tsd-signature-type">string</span></h5></li></ul></div>
+<h5>value: <span class="tsd-signature-type">string</span></h5>
+<div class="tsd-comment tsd-typography"><p>The value of the field.</p>
+</div></li></ul></div>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type" data-tsd-kind="Type parameter">T</span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type" data-tsd-kind="Type parameter">K</span><span class="tsd-signature-symbol">]</span></h4></li></ul></li></ul></div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/chenasraf/formplex-react/blob/726da34/src/types.ts#L136">types.ts:136</a></li></ul></aside></section>
+<li>Defined in <a href="https://github.com/chenasraf/formplex-react/blob/cd4988d/src/types.ts#L195">types.ts:195</a></li></ul></aside></section>
 <section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface"><a id="pattern" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagOptional">Optional</code> <span>pattern</span><a href="#pattern" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <div class="tsd-signature">pattern<span class="tsd-signature-symbol">?:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">RegExp</span></div>
 <div class="tsd-comment tsd-typography"><p>A regular expression that the field must match.</p>
-<p>This will cause the input to not update if the value does not match the given pattern.
-To cause a validation error for a pattern, use <code>validate</code> instead.</p>
+<p>This will cause the input to not update if the value does not match the given pattern. To cause a validation
+error for a pattern, use <a href="FieldOptions.html#validate">validate</a> instead.</p>
 </div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/chenasraf/formplex-react/blob/726da34/src/types.ts#L114">types.ts:114</a></li></ul></aside></section>
+<li>Defined in <a href="https://github.com/chenasraf/formplex-react/blob/cd4988d/src/types.ts#L156">types.ts:156</a></li></ul></aside></section>
 <section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface"><a id="required" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagOptional">Optional</code> <span>required</span><a href="#required" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <div class="tsd-signature">required<span class="tsd-signature-symbol">?:</span> <span class="tsd-signature-type">boolean</span></div>
 <div class="tsd-comment tsd-typography"><p>If <code>true</code>, the field will be required.</p>
-<p>This will cause the form to be invalid if the field is empty
- and an error message will be provided in <code>errors</code>.</p>
+<p>This will cause the form to be invalid if the field is empty and an error message will be provided in
+<a href="UseFormReturn.html#errors">UseFormReturn.errors</a>.</p>
+<p>To provide a custom error message, use <a href="FieldOptions.html#errorMessages">errorMessages</a>.</p>
 </div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/chenasraf/formplex-react/blob/726da34/src/types.ts#L90">types.ts:90</a></li></ul></aside></section>
+<li>Defined in <a href="https://github.com/chenasraf/formplex-react/blob/cd4988d/src/types.ts#L128">types.ts:128</a></li></ul></aside></section>
 <section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface"><a id="validate" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagOptional">Optional</code> <span>validate</span><a href="#validate" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <div class="tsd-signature">validate<span class="tsd-signature-symbol">?:</span> <span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type" data-tsd-kind="Type parameter">T</span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type" data-tsd-kind="Type parameter">K</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span></div>
@@ -143,20 +193,30 @@ To cause a validation error for a pattern, use <code>validate</code> instead.</p
 <ul class="tsd-parameters">
 <li class="tsd-parameter-signature">
 <ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-interface">
-<li class="tsd-signature" id="__type-4.__type-5"><span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type" data-tsd-kind="Type parameter">T</span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type" data-tsd-kind="Type parameter">K</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+<li class="tsd-signature" id="__type-6.__type-7"><span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type" data-tsd-kind="Type parameter">T</span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type" data-tsd-kind="Type parameter">K</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
 <li class="tsd-description">
 <div class="tsd-comment tsd-typography"><p>A custom validation function for the field.</p>
 <p>If it returns an empty string, <code>null</code> or <code>undefined</code>, the field is valid.</p>
 <p>Otherwise, the field is invalid and the returned string will be the error message.</p>
+
+<h3>Returns</h3><p>The error message, if any, or undefined/null if the field is valid.</p>
+
+<h3>See</h3><ul>
+<li><a href="ErrorStrings.html">ErrorStrings</a> for definition of error messages</li>
+<li><a href="UseFormOptions.html#errorMessages">UseFormOptions.errorMessages</a> for global error messages for the default validation methods</li>
+<li><a href="FieldOptions.html#errorMessages">errorMessages</a> for field-specific error messages for the default validation methods</li>
+</ul>
 </div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
 <ul class="tsd-parameter-list">
 <li>
-<h5>value: <span class="tsd-signature-type" data-tsd-kind="Type parameter">T</span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type" data-tsd-kind="Type parameter">K</span><span class="tsd-signature-symbol">]</span></h5></li></ul></div>
+<h5>value: <span class="tsd-signature-type" data-tsd-kind="Type parameter">T</span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type" data-tsd-kind="Type parameter">K</span><span class="tsd-signature-symbol">]</span></h5>
+<div class="tsd-comment tsd-typography"><p>The value of the field.</p>
+</div></li></ul></div>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4></li></ul></li></ul></div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/chenasraf/formplex-react/blob/726da34/src/types.ts#L128">types.ts:128</a></li></ul></aside></section></section></div>
+<li>Defined in <a href="https://github.com/chenasraf/formplex-react/blob/cd4988d/src/types.ts#L183">types.ts:183</a></li></ul></aside></section></section></div>
 <div class="col-4 col-menu menu-sticky-wrap menu-highlight">
 <div class="tsd-navigation settings">
 <details class="tsd-index-accordion"><summary class="tsd-accordion-summary">
@@ -185,6 +245,7 @@ To cause a validation error for a pattern, use <code>validate</code> instead.</p
 <li class="tsd-kind-property tsd-parent-kind-interface"><a href="FieldOptions.html#errorMessages" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg>error<wbr/>Messages?</a></li>
 <li class="tsd-kind-property tsd-parent-kind-interface"><a href="FieldOptions.html#maxLength" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg>max<wbr/>Length?</a></li>
 <li class="tsd-kind-property tsd-parent-kind-interface"><a href="FieldOptions.html#minLength" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg>min<wbr/>Length?</a></li>
+<li class="tsd-kind-property tsd-parent-kind-interface"><a href="FieldOptions.html#onBlur" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg>on<wbr/>Blur?</a></li>
 <li class="tsd-kind-property tsd-parent-kind-interface"><a href="FieldOptions.html#onChange" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg>on<wbr/>Change?</a></li>
 <li class="tsd-kind-property tsd-parent-kind-interface"><a href="FieldOptions.html#parse" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg>parse?</a></li>
 <li class="tsd-kind-property tsd-parent-kind-interface"><a href="FieldOptions.html#pattern" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg>pattern?</a></li>
