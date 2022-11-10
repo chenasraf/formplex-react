@@ -56,6 +56,50 @@ Use `field()` from the previous hook on your inputs, should support most input t
 </select>
 ```
 
+## Quick-start
+
+See the [full documentation](https://chenasraf.github.io/formplex-react/) for all the available
+options, return values and more examples.
+
+### Use the hook
+
+Start by calling the hook, passing in any options you would like for the form, and get the return
+values as needed.
+
+This is a full example of a hook usage with all the available options and return values. All options
+are optional, see the docs for each for more information.
+
+```tsx
+const { field, handleSubmit, isValid, errors, state, rawState, setValue, setValues } =
+  useForm<MyFormData>({
+    initialState: {
+      firstName: 'John',
+      lastName: 'Doe',
+    },
+    autoValidateBehavior: 'onChange',
+    errorMessages: {
+      required: 'This field is required',
+      minLength: (n) => `Must be more than ${n} chars long`,
+      maxLength: (n) => `Must be less than ${n} chars long`,
+    },
+    onSubmit(values, e) {
+      console.log('Form submitted:', values)
+      fetch('/submit', { method: 'POST', body: JSON.stringify(values) })
+    },
+  })
+```
+
+### Register an input
+
+Use `field()` from the previous hook on your inputs, should support most input types:
+
+```tsx
+<input type="text" {...field('firstName', { required:true, minLength: 2 })}>
+<select {...field('gender', { required: true })}>
+  ...
+</select>
+```
+
 ### Full form example
 
 Below is a full example of a simple form.
