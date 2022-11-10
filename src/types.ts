@@ -218,15 +218,4 @@ export interface ErrorStrings {
    * ```
    */
   maxLength: string | ((length: number) => string)
-  /**
-   * Error message for when the field value does not match the given pattern.
-   *
-   * Can either be a string, or a function resolving to a string.
-   *
-   * Default:
-   * ```ts
-   * (p) => `Must match pattern ${p}`
-   * ```
-   */
-  pattern: string | ((pattern: string | RegExp) => string)
 }

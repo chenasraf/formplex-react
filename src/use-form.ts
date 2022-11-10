@@ -21,7 +21,6 @@ export function useForm<T>({
     required: 'Required',
     minLength: (n) => `Must be at least ${n} characters long`,
     maxLength: (n) => `Must be no more than ${n} characters long`,
-    pattern: (p) => `Must match pattern ${p}`,
     ...errorMessages,
   }
   const [state, setState] = React.useState<Partial<T>>(initialState ?? {})
