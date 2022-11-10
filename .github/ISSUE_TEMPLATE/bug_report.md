@@ -1,7 +1,7 @@
 ---
 name: Bug report
 about: Create a report to help us improve
-title: "[BUG] "
+title: '[BUG] '
 labels: bug, needs-triage
 assignees: chenasraf
 ---
@@ -23,7 +23,7 @@ Steps to reproduce the behavior:
 2. Run with args/config:
 
    ```shell
-   npx simple-scaffold@latest -t input -o output TplName
+   npx formplex-react@latest -t input -o output TplName
    ```
 
 #### Expected behavior\*\*
