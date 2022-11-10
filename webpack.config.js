@@ -21,7 +21,10 @@ const config = {
     // Add your plugins here
     // Learn more about plugins from https://webpack.js.org/configuration/plugins/
     new CopyPlugin({
-      patterns: [{ from: 'package.json', to: '.' }],
+      patterns: [
+        { from: 'package.json', to: '.' },
+        { from: 'README.md', to: '.' },
+      ],
     }),
   ],
   module: {
