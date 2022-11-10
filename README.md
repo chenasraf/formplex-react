@@ -94,7 +94,12 @@ const { field, handleSubmit, isValid, errors, state, rawState, setValue, setValu
 Use `field()` from the previous hook on your inputs, should support most input types:
 
 ```tsx
-<input type="text" {...field('firstName', { required:true, minLength: 2 })}>
+<input type="text" {...field('firstName', { required: true, minLength: 2 })} />
+<input type="number" {...field('age', {
+  required: true,
+  validate: (n) => n < 18 ? "Must be 18 or over" : null,
+  parse: Number,
+})} />
 <select {...field('gender', { required: true })}>
   ...
 </select>
