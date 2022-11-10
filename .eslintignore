@@ -1,0 +1,4 @@
+templates/
+scaffolds/
+webpack.config.js
+dist/

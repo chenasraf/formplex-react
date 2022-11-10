@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
+    "noImplicitAny": true,
+    "module": "CommonJS",
+    "target": "es5",
+    "allowJs": true,
+    "moduleResolution": "node",
+    "removeComments": false,
+    "declaration": true,
+    "declarationDir": "dist"
+    // "outDir": "dist",
+  },
+  "files": [
+    "src/index.ts"
+  ]
+}
