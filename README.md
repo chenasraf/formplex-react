@@ -1,6 +1,12 @@
 # FormPlex - React
 
-<h2><a href="https://chenasraf.github.io/formplex-react/">Full documentation</a></h2>
+<h2 align="center">
+
+[GitHub](https://github.com/chenasraf/formplex-react) |
+[Documentation](https://casraf.blog/formplex-react) |
+[NPM](https://npmjs.com/package/formplex-react) | [casraf.dev](https://casraf.dev)
+
+</h2>
 
 Handle forms in your React apps with incredible ease.
 
