@@ -57,7 +57,7 @@ export interface UseFormReturn<T> {
    * @returns Props that should be injected into the input.
    * @see {@link FieldOptions}
    */
-  field: <K extends keyof T, E>(key: K, options?: FieldOptions<T, K>) => FieldReturn<E>
+  field<K extends keyof T, E>(key: K, options?: FieldOptions<T, K>): FieldReturn<E>
 
   /**
    * A mapping of the error messages given for each field.
@@ -90,7 +90,7 @@ export interface UseFormReturn<T> {
    *
    * @param e The form submit event.
    */
-  handleSubmit: (e: React.FormEvent<HTMLFormElement>) => void
+  handleSubmit(e: React.FormEvent<HTMLFormElement>): void
 
   /**
    * Set multiple fields at once. This will cause the form to re-render.
@@ -98,7 +98,7 @@ export interface UseFormReturn<T> {
    * @param values The values to set, as an object of `{ field: value }`.
    * @see {@link UseFormReturn.setValue | UseFormReturn.setValue} for setting a single value
    */
-  setValues: (values: Partial<T>) => void
+  setValues(values: Partial<T>): void
 
   /**
    * Set a single field. This will cause the form to re-render.
@@ -107,7 +107,7 @@ export interface UseFormReturn<T> {
    * @param value The value to set.
    * @see {@link UseFormReturn.setValues | UseFormReturn.setValues} for setting multiple values at once
    */
-  setValue: <K extends keyof T>(key: K, value: T[K]) => void
+  setValue<K extends keyof T>(key: K, value: T[K]): void
 
   /**
    * Perform validation on all fields, and return whether the form is valid.
