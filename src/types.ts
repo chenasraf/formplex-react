@@ -118,7 +118,6 @@ export interface UseFormReturn<T> {
    */
   validate(): boolean
 }
-
 /**
  * Options for every field. See each property for more information.
  */
@@ -186,17 +185,16 @@ export interface FieldOptions<T, K extends keyof T = keyof T> {
    * @see {@link UseFormOptions.errorMessages | UseFormOptions.errorMessages} for global error messages for the default validation methods
    * @see {@link FieldOptions.errorMessages} for field-specific error messages for the default validation methods
    */
-  validate?: (value: T[K]) => string | undefined | null
+  validate?: Validator<T[K]>
 
   /**
-   * A custom parser for the field. This will be called when the field is updated, and will cause the
-   * {@link UseFormReturn.state} object to be updated with the result of this function.
-   *
-   * {@link UseFormReturn.rawState | UseFormReturn.rawState} will always contain the raw value of the field as it was
-   * placed here.
+   * Parse the value of the field before it is set in the form state.
    *
    * @param value The value of the field.
-   * @returns The parsed value of the field.
+   * @returns The parsed value.
+   *
+   * @see {@link UseFormReturn.state} for the parsed form state
+   * @see {@link UseFormReturn.rawState} for the raw form state
    */
   parse?: (value: string) => T[K]
 
@@ -253,6 +251,69 @@ export interface ErrorMessage {
   message: string
 }
 
+/**
+ * Validation function for a field.
+ *
+ * @typeParam T - The type of the form field.
+ */
+export type Validator<T = unknown> = (value: T) => string | undefined | null
+
+/**
+ * A function that receives the validation argument of a field, such as the minimum length or the regular expression,
+ * and returns the error message for the field.
+ *
+ * @typeParam T The type of the validation argument (e.g. `minLength` has `number` to represent the minimum length).
+ * @param validation The validation that was not met.
+ */
+export type MessageResolver<T> = (validation: T) => string
+
+/**
+ * Map of custom error messages for the default validation methods.
+ *
+ * @see {@link UseFormOptions.errorMessages | UseFormOptions.errorMessages} for global error messages for the default validation methods
+ * @see {@link FieldOptions.errorMessages | FieldOptions.errorMessages} for field-specific error messages for the default validation methods
+ */
+export interface ErrorStrings {
+  /**
+   * Error message for when the field is required but missing.
+   *
+   * Default: `"Required"`
+   *
+   * @see {@link FieldOptions.required | FieldOptions.required} for defining a field as required
+   */
+  required: string
+
+  /**
+   * Error message for when the field length is too short.
+   *
+   * Can either be a string, or a function resolving to a string.
+   *
+   * Default:
+   * ```ts
+   * (n) => `Must be at least ${n} characters long`
+   * ```
+   *
+   * @see {@link FieldOptions.minLength | FieldOptions.minLength} for defining a minimum length for the field
+   * @see {@link MessageResolver} for the function signature
+   */
+  minLength: string | MessageResolver<number>
+
+  /**
+   * Error message for when the field length is too long.
+   *
+   * Can either be a string, or a function resolving to a string.
+   *
+   * Default:
+   * ```ts
+   * (n) => `Must be no more than ${n} characters long`
+   * ```
+   *
+   * @see {@link FieldOptions.maxLength | FieldOptions.maxLength} for defining a maximum length for the field
+   * @see {@link MessageResolver} for the function signature
+   */
+  maxLength: string | MessageResolver<number>
+}
+
 /** @hidden */
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 export type FieldReturn<E> = {
@@ -285,48 +346,3 @@ export type ChangeEvent = {
 }
 /** @hidden */
 export type BlurEvent = ChangeEvent
-
-/**
- * Map of custom error messages for the default validation methods.
- *
- * @see {@link UseFormOptions.errorMessages | UseFormOptions.errorMessages} for global error messages for the default validation methods
- * @see {@link FieldOptions.errorMessages | FieldOptions.errorMessages} for field-specific error messages for the default validation methods
- */
-export interface ErrorStrings {
-  /**
-   * Error message for when the field is required but missing.
-   *
-   * Default: `"Required"`
-   *
-   * @see {@link FieldOptions.required | FieldOptions.required} for defining a field as required
-   */
-  required: string
-
-  /**
-   * Error message for when the field length is too short.
-   *
-   * Can either be a string, or a function resolving to a string.
-   *
-   * Default:
-   * ```ts
-   * (n) => `Must be at least ${n} characters long`
-   * ```
-   *
-   * @see {@link FieldOptions.minLength | FieldOptions.minLength} for defining a minimum length for the field
-   */
-  minLength: string | ((length: number) => string)
-
-  /**
-   * Error message for when the field length is too long.
-   *
-   * Can either be a string, or a function resolving to a string.
-   *
-   * Default:
-   * ```ts
-   * (n) => `Must be no more than ${n} characters long`
-   * ```
-   *
-   * @see {@link FieldOptions.maxLength | FieldOptions.maxLength} for defining a maximum length for the field
-   */
-  maxLength: string | ((length: number) => string)
-}
