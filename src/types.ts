@@ -13,7 +13,7 @@ export interface UseFormOptions<T> {
   /**
    * Callback that will be fired when the form is submitted. The callback will receive the form data.
    */
-  onSubmit?: (values: T, e: React.FormEvent<HTMLFormElement>) => void
+  onSubmit?(values: T, e: React.FormEvent<HTMLFormElement>): void
 
   /**
    * Map of custom error messages for the default validation methods.
@@ -196,7 +196,7 @@ export interface FieldOptions<T, K extends keyof T = keyof T> {
    * @see {@link UseFormReturn.state} for the parsed form state
    * @see {@link UseFormReturn.rawState} for the raw form state
    */
-  parse?: (value: string) => T[K]
+  parse?(value: string): T[K]
 
   /**
    * A callback for changing the input, which also contains the parsed value.
@@ -208,7 +208,7 @@ export interface FieldOptions<T, K extends keyof T = keyof T> {
    * @param event The input change event.
    * @param value The parsed value of the field.
    */
-  onChange?: (event: ChangeEvent, value: T[K]) => void
+  onChange?(event: ChangeEvent, value: T[K]): void
 
   /**
    * A callback for leaving focus from the input, which also contains the parsed value.
@@ -220,7 +220,7 @@ export interface FieldOptions<T, K extends keyof T = keyof T> {
    * @param event The input change event.
    * @param value The parsed value of the field.
    */
-  onBlur?: (event: ChangeEvent, value: T[K]) => void
+  onBlur?(event: ChangeEvent, value: T[K]): void
 }
 
 /**
@@ -331,12 +331,12 @@ export type FieldReturn<E> = {
   /**
    * Change event callback
    */
-  onChange: (event: ChangeEvent) => void
+  onChange(event: ChangeEvent): void
 
   /**
    * Blur event callback
    */
-  onBlur: (event: ChangeEvent) => void
+  onBlur(event: ChangeEvent): void
 }
 
 /** @hidden */
