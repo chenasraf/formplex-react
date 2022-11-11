@@ -9,6 +9,7 @@ import {
   UseFormOptions,
   UseFormReturn,
 } from './types'
+import { parseStr } from './utils'
 
 /**
  * The main hook for using forms. See each option and return property for more information
@@ -60,9 +61,6 @@ export function useForm<T>({
     value: T[K],
     options: FieldOptions<T, K>,
   ): ErrorMessage | undefined {
-    const parseStr = (o: string | ((...args: unknown[]) => string), val: unknown) =>
-      typeof o === 'function' ? o(val) : o
-
     const errorStrings = {
       ...errorMessages,
       ...(options?.errorMessages ?? {}),

@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.1.4
+
+- feat: add `validator` export with built-in validators for easy use
+
 ## v0.1.3
 
 - feat: add `validate` method
