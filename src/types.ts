@@ -1,3 +1,5 @@
+import React from 'react'
+
 /**
  * Options for the `useForm` hook
  *
@@ -77,7 +79,7 @@ export interface UseFormReturn<T> {
   /**
    * The current form data, before parsing.
    */
-  rawState: Partial<Record<keyof T, string | string[] | number>>
+  rawState: Partial<Record<keyof T, InputType>>
 
   /**
    * Indicates whether the form is valid.
@@ -131,6 +133,13 @@ export interface FieldOptions<T, K extends keyof T = keyof T> {
    * To provide a custom error message, use {@link FieldOptions.errorMessages}.
    */
   required?: boolean
+
+  /**
+   * If `true`, handlers will treat the field as an array and not a single value.
+   *
+   * If you supply an array as the initial value, this will be set to `true` automatically.
+   */
+  multiple?: boolean
 
   /**
    * Minimum length (in characters) for the field.
@@ -196,7 +205,8 @@ export interface FieldOptions<T, K extends keyof T = keyof T> {
    * @see {@link UseFormReturn.state} for the parsed form state
    * @see {@link UseFormReturn.rawState} for the raw form state
    */
-  parse?(value: string): T[K]
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  parse?(value: InputType | any): T[K]
 
   /**
    * A callback for changing the input, which also contains the parsed value.
@@ -314,9 +324,16 @@ export interface ErrorStrings {
   maxLength: string | MessageResolver<number>
 }
 
+export type InputType = unknown
+
 /** @hidden */
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 export type FieldReturn<E> = {
+  /**
+   * The name of the field.
+   */
+  name: string
+
   /**
    * The value of the field.
    */
@@ -343,6 +360,9 @@ export type FieldReturn<E> = {
 export type ChangeEvent = {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   target: any
+  defaultPrevented: boolean
+  persist?(): void
 }
+
 /** @hidden */
 export type BlurEvent = ChangeEvent

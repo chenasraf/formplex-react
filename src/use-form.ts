@@ -6,6 +6,7 @@ import {
   ErrorStrings,
   FieldOptions,
   FieldReturn,
+  InputType,
   UseFormOptions,
   UseFormReturn,
 } from './types'
@@ -36,12 +37,10 @@ export function useForm<T>({
     {} as unknown as Record<keyof T, FieldOptions<keyof T>>,
   )
   const [state, setState] = React.useState<Partial<T>>(initialState ?? {})
-  const [rawState, setRawState] = React.useState<
-    Partial<Record<keyof T, string | string[] | number>>
-  >(
+  const [rawState, setRawState] = React.useState<Partial<Record<keyof T, InputType>>>(
     Object.entries(state).reduce(
-      (acc, [key, value]) => ({ ...acc, [key]: String(value) }),
-      {} as Partial<Record<keyof T, string | string[] | number>>,
+      (acc, [key, value]) => ({ ...acc, [key]: value }),
+      {} as Partial<Record<keyof T, InputType>>,
     ),
   )
   const [errors, setErrors] = React.useState<Partial<Record<keyof T, ErrorMessage>>>({})
@@ -49,8 +48,8 @@ export function useForm<T>({
 
   function setValue<K extends keyof T>(
     key: K,
-    value: T[K] | string | string[] | number,
-    raw: T[K] | string | string[] | number = value,
+    value: T[K] | InputType,
+    raw: T[K] | InputType = value,
   ) {
     setRawState((prev) => ({ ...prev, [key]: raw }))
     setState((s) => ({ ...s, [key]: value }))
@@ -93,10 +92,10 @@ export function useForm<T>({
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   function parseValue<K extends keyof T, E extends HTMLElement = HTMLInputElement>(
-    value: string | number | string[] | null | undefined,
+    value: InputType | null | undefined,
     options?: FieldOptions<T, K>,
-  ): string | number | string[] | undefined | T[K] {
-    const parsed = options?.parse ? options.parse(value as string) : value
+  ): InputType | InputType[] | undefined | T[K] | T[K][] {
+    const parsed = options?.parse ? options.parse(value) : value
 
     if (value !== '' && options?.pattern) {
       if (!new RegExp(options.pattern).test(parsed as string)) {
@@ -108,38 +107,50 @@ export function useForm<T>({
   }
 
   function fieldProps<K extends keyof T, E>(key: K, options?: FieldOptions<T, K>): FieldReturn<E> {
-    fields.current = { ...fields.current, [key]: options }
+    const isArrayField = options.multiple || (initialState[key] && Array.isArray(initialState[key]))
+    options = { ...options, multiple: options?.multiple ?? isArrayField }
+
+    fields.current = {
+      ...fields.current,
+      [key]: options,
+    }
 
     if (autoValidateBehavior === 'immediate') {
       setErrorsFromRaw<K>(key, rawState[key], options)
     }
 
     return {
-      value: rawState[key] ?? '',
+      name: key as string,
+      value: rawState[key] ?? (isArrayField ? [] : ''),
       onChange: (e: ChangeEvent) => {
+        e.persist?.()
         const value = parseValue(e.target.value, options)
         if (value === undefined) {
           return
         }
-        setValueFromRaw<K>(key, e.target.value, options)
-
-        if (autoValidateBehavior === 'onChange') {
-          if (setErrorsFromRaw(key, e.target.value, options)) {
-            options?.onChange?.(e, value as T[K])
-          }
+        const isValid =
+          autoValidateBehavior !== 'onChange' || !setErrorsFromRaw<K>(key, value, options)
+        if (isValid) {
+          options?.onChange?.(e, value as T[K])
+        }
+        if (!e.defaultPrevented) {
+          setValueFromRaw<K>(key, e.target.value, options)
         }
       },
       onBlur: (e: BlurEvent) => {
+        e.persist?.()
         const value = parseValue(e.target.value, options)
         if (value === undefined) {
           return
         }
-        setValueFromRaw<K>(key, e.target.value, options)
 
-        if (autoValidateBehavior === 'onBlur') {
-          if (setErrorsFromRaw(key, e.target.value, options)) {
-            options?.onChange?.(e, value as T[K])
-          }
+        const isValid =
+          autoValidateBehavior !== 'onBlur' || !setErrorsFromRaw<K>(key, value, options)
+        if (isValid) {
+          options?.onBlur?.(e, value as T[K])
+        }
+        if (!e.defaultPrevented) {
+          setValueFromRaw<K>(key, e.target.value, options)
         }
       },
     }
@@ -147,7 +158,7 @@ export function useForm<T>({
 
   function setErrorsFromRaw<K extends keyof T>(
     key: K,
-    value: string | string[] | number,
+    value: InputType,
     options: FieldOptions<T, K>,
   ): boolean {
     const parsed = parseValue(value, options)
@@ -167,7 +178,7 @@ export function useForm<T>({
 
   function setValueFromRaw<K extends keyof T>(
     key: K,
-    value: string | string[] | number,
+    value: InputType,
     options: FieldOptions<T, K>,
   ) {
     const parsed = parseValue(value, options)
