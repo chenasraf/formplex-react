@@ -31,7 +31,7 @@ export interface UseFormOptions<T> {
   /**
    * Decide when to auto validate the form. Defaults to `onChange`.
    *
-   * `immediate` - Show validation errors as soon as the hook mounts.
+   * `immediate` - Show validation errors as soon as the hook mounts, as well as onChange and onBlur.
    *
    * `onChange` - Show validations after the user has changed the input.
    *
@@ -127,6 +127,7 @@ export interface UseFormReturn<T> {
    */
   validate(): boolean
 }
+
 /**
  * Options for every field. See each property for more information.
  */

@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.1.6
+
+- fix: immediate validation behavior
+
 ## v0.1.5
 
 - feat: array value support

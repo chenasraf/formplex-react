@@ -132,10 +132,13 @@ export function useForm<T>({
           return
         }
         const isValid =
-          autoValidateBehavior !== 'onChange' || !setErrorsFromRaw<K>(key, value, options)
+          !['immediate', 'onChange'].includes(autoValidateBehavior) ||
+          !setErrorsFromRaw<K>(key, value, options)
+
         if (isValid) {
           options?.onChange?.(e, value as T[K])
         }
+
         if (!e.defaultPrevented) {
           setValueFromRaw<K>(key, e.target.value, options)
         }
@@ -148,7 +151,9 @@ export function useForm<T>({
         }
 
         const isValid =
-          autoValidateBehavior !== 'onBlur' || !setErrorsFromRaw<K>(key, value, options)
+          !['immediate', 'onBlur'].includes(autoValidateBehavior) ||
+          !setErrorsFromRaw<K>(key, value, options)
+
         if (isValid) {
           options?.onBlur?.(e, value as T[K])
         }
