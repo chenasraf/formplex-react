@@ -37,6 +37,7 @@ export function useForm<T>({
     {} as unknown as Record<keyof T, FieldOptions<keyof T>>,
   )
   const [state, setState] = React.useState<Partial<T>>(initialState ?? {})
+  const [dirty, setDirty] = React.useState<Partial<Record<keyof T, boolean>>>({})
   const [rawState, setRawState] = React.useState<Partial<Record<keyof T, InputType>>>(
     Object.entries(state).reduce(
       (acc, [key, value]) => ({ ...acc, [key]: value }),
@@ -52,7 +53,8 @@ export function useForm<T>({
     raw: T[K] | InputType = value,
   ) {
     setRawState((prev) => ({ ...prev, [key]: raw }))
-    setState((s) => ({ ...s, [key]: value }))
+    setState((prev) => ({ ...prev, [key]: value }))
+    setDirty((prev) => ({ ...prev, [key]: true }))
   }
 
   function validate<K extends keyof T>(
@@ -107,7 +109,8 @@ export function useForm<T>({
   }
 
   function fieldProps<K extends keyof T, E>(key: K, options?: FieldOptions<T, K>): FieldReturn<E> {
-    const isArrayField = options.multiple || (initialState[key] && Array.isArray(initialState[key]))
+    const isArrayField =
+      options?.multiple || (initialState[key] && Array.isArray(initialState[key]))
     options = { ...options, multiple: options?.multiple ?? isArrayField }
 
     fields.current = {
@@ -148,9 +151,6 @@ export function useForm<T>({
           autoValidateBehavior !== 'onBlur' || !setErrorsFromRaw<K>(key, value, options)
         if (isValid) {
           options?.onBlur?.(e, value as T[K])
-        }
-        if (!e.defaultPrevented) {
-          setValueFromRaw<K>(key, e.target.value, options)
         }
       },
     }
@@ -219,6 +219,7 @@ export function useForm<T>({
     state,
     rawState,
     isValid,
+    dirty,
     setValue,
     setValues: setValues,
     handleSubmit,

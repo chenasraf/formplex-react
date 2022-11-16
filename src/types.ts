@@ -82,6 +82,13 @@ export interface UseFormReturn<T> {
   rawState: Partial<Record<keyof T, InputType>>
 
   /**
+   * A mapping of all the fields that have been modified by the user.
+   *
+   * If a field is dirty, its key will be `true` in this object.
+   */
+  dirty: Partial<Record<keyof T, boolean>>
+
+  /**
    * Indicates whether the form is valid.
    */
   isValid: boolean
