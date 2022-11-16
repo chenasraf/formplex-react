@@ -1,5 +1,10 @@
 # Changelog
 
+## v0.1.5
+
+- feat: array value support
+- feat: add `dirty` property to result
+
 ## v0.1.4
 
 - feat: add `validator` export with built-in validators for easy use

@@ -27,7 +27,7 @@ This is a full example of a hook usage with all the available options and return
 are optional, see the docs for each for more information.
 
 ```tsx
-const { field, handleSubmit, isValid, errors, state, rawState, setValue, setValues } =
+const { field, handleSubmit, isValid, errors, state, rawState, dirty, setValue, setValues } =
   useForm<MyFormData>({
     initialState: {
       firstName: 'John',

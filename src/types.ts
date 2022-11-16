@@ -1,3 +1,5 @@
+import React from 'react'
+
 /**
  * Options for the `useForm` hook
  *
@@ -13,7 +15,7 @@ export interface UseFormOptions<T> {
   /**
    * Callback that will be fired when the form is submitted. The callback will receive the form data.
    */
-  onSubmit?: (values: T, e: React.FormEvent<HTMLFormElement>) => void
+  onSubmit?(values: T, e: React.FormEvent<HTMLFormElement>): void
 
   /**
    * Map of custom error messages for the default validation methods.
@@ -57,7 +59,7 @@ export interface UseFormReturn<T> {
    * @returns Props that should be injected into the input.
    * @see {@link FieldOptions}
    */
-  field: <K extends keyof T, E>(key: K, options?: FieldOptions<T, K>) => FieldReturn<E>
+  field<K extends keyof T, E>(key: K, options?: FieldOptions<T, K>): FieldReturn<E>
 
   /**
    * A mapping of the error messages given for each field.
@@ -77,7 +79,14 @@ export interface UseFormReturn<T> {
   /**
    * The current form data, before parsing.
    */
-  rawState: Partial<Record<keyof T, string | string[] | number>>
+  rawState: Partial<Record<keyof T, InputType>>
+
+  /**
+   * A mapping of all the fields that have been modified by the user.
+   *
+   * If a field is dirty, its key will be `true` in this object.
+   */
+  dirty: Partial<Record<keyof T, boolean>>
 
   /**
    * Indicates whether the form is valid.
@@ -90,7 +99,7 @@ export interface UseFormReturn<T> {
    *
    * @param e The form submit event.
    */
-  handleSubmit: (e: React.FormEvent<HTMLFormElement>) => void
+  handleSubmit(e: React.FormEvent<HTMLFormElement>): void
 
   /**
    * Set multiple fields at once. This will cause the form to re-render.
@@ -98,7 +107,7 @@ export interface UseFormReturn<T> {
    * @param values The values to set, as an object of `{ field: value }`.
    * @see {@link UseFormReturn.setValue | UseFormReturn.setValue} for setting a single value
    */
-  setValues: (values: Partial<T>) => void
+  setValues(values: Partial<T>): void
 
   /**
    * Set a single field. This will cause the form to re-render.
@@ -107,7 +116,7 @@ export interface UseFormReturn<T> {
    * @param value The value to set.
    * @see {@link UseFormReturn.setValues | UseFormReturn.setValues} for setting multiple values at once
    */
-  setValue: <K extends keyof T>(key: K, value: T[K]) => void
+  setValue<K extends keyof T>(key: K, value: T[K]): void
 
   /**
    * Perform validation on all fields, and return whether the form is valid.
@@ -131,6 +140,13 @@ export interface FieldOptions<T, K extends keyof T = keyof T> {
    * To provide a custom error message, use {@link FieldOptions.errorMessages}.
    */
   required?: boolean
+
+  /**
+   * If `true`, handlers will treat the field as an array and not a single value.
+   *
+   * If you supply an array as the initial value, this will be set to `true` automatically.
+   */
+  multiple?: boolean
 
   /**
    * Minimum length (in characters) for the field.
@@ -196,7 +212,8 @@ export interface FieldOptions<T, K extends keyof T = keyof T> {
    * @see {@link UseFormReturn.state} for the parsed form state
    * @see {@link UseFormReturn.rawState} for the raw form state
    */
-  parse?: (value: string) => T[K]
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  parse?(value: InputType | any): T[K]
 
   /**
    * A callback for changing the input, which also contains the parsed value.
@@ -208,7 +225,7 @@ export interface FieldOptions<T, K extends keyof T = keyof T> {
    * @param event The input change event.
    * @param value The parsed value of the field.
    */
-  onChange?: (event: ChangeEvent, value: T[K]) => void
+  onChange?(event: ChangeEvent, value: T[K]): void
 
   /**
    * A callback for leaving focus from the input, which also contains the parsed value.
@@ -220,7 +237,7 @@ export interface FieldOptions<T, K extends keyof T = keyof T> {
    * @param event The input change event.
    * @param value The parsed value of the field.
    */
-  onBlur?: (event: ChangeEvent, value: T[K]) => void
+  onBlur?(event: ChangeEvent, value: T[K]): void
 }
 
 /**
@@ -314,9 +331,16 @@ export interface ErrorStrings {
   maxLength: string | MessageResolver<number>
 }
 
+export type InputType = unknown
+
 /** @hidden */
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 export type FieldReturn<E> = {
+  /**
+   * The name of the field.
+   */
+  name: string
+
   /**
    * The value of the field.
    */
@@ -331,18 +355,21 @@ export type FieldReturn<E> = {
   /**
    * Change event callback
    */
-  onChange: (event: ChangeEvent) => void
+  onChange(event: ChangeEvent): void
 
   /**
    * Blur event callback
    */
-  onBlur: (event: ChangeEvent) => void
+  onBlur(event: ChangeEvent): void
 }
 
 /** @hidden */
 export type ChangeEvent = {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   target: any
+  defaultPrevented: boolean
+  persist?(): void
 }
+
 /** @hidden */
 export type BlurEvent = ChangeEvent
